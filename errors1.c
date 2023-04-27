@@ -12,12 +12,12 @@ int _erratoi(char *string)
 
 	if (*string == '+')
 		string++;
-	for (j = 0;  string[i] != '\0'; j++)
+	for (j = 0;  string[j] != '\0'; j++)
 	{
 		if (string[j] >= '0' && string[j] <= '9')
 		{
 			resulted *= 10;
-			resulted += (sreing[j] - '0');
+			resulted += (string[j] - '0');
 			if (resulted > INT_MAX)
 				return (-1);
 		}
@@ -95,7 +95,7 @@ char *convert_number(long int number, int base, int flags)
 	static char bufer[50];
 	char sign = 0;
 	char *pointer;
-	unsigned long n = nummber;
+	unsigned long n = number;
 
 	if (!(flags & CONVERT_UNSIGNED) && number < 0)
 	{
@@ -127,7 +127,7 @@ void remove_comments(char *buff)
 	int b;
 
 	for (b = 0; buff[b] != '\0'; b++)
-		if (buff[i] == '#' && (!b || buff[b - 1] == ' '))
+		if (buff[b] == '#' && (!b || buff[b - 1] == ' '))
 		{
 			buff[b] = '\0';
 			break;
