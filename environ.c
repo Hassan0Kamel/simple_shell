@@ -46,7 +46,7 @@ int _mysetenv(info_t *informatics)
 	}
 
 
-	if (_setenv(info, informatics->argv[1], informatics->argv[2]))
+	if (_setenv(informatics, informatics->argv[1], informatics->argv[2]))
 		return (0);
 	return (1);
 }
