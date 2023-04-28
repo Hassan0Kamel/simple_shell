@@ -32,13 +32,13 @@ void ffree(char **tt)
 }
 
 /**
- * _realloc - reallocatmory
+ * _realloc - reallocatmory nice
  * @pointer: pointer to palloc'ated block
  * @old_size: bytous block
  * @new_size: byte ck
  * Return: pointmeen.
  */
-void *_realloc(void *ointerr, unsigned int old_size, unsigned int new_size)
+void *_realloc(void *pointer, unsigned int old_size, unsigned int new_size)
 {
 	char *l;
 
