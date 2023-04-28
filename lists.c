@@ -35,7 +35,7 @@ list_t *add_node(list_t **head, const char *str, int num)
 /**
  * add_node_end - he end of the list
  * @head: address of pointer to head node
- * @string: strof node
+ * @str: strof node
  * @num: node index usory
  * Return: size of list
  */

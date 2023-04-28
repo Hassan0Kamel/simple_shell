@@ -41,7 +41,7 @@ int _eputchar(char character)
 /**
  * _putfd - writes
  * @character: The character to print
- * @fikedescriptor: The filedescriptor.
+ * @filedescriptor: The filedescriptor.
  * Return: O and errno is set appropriately.
  */
 int _putfd(char character, int filedescriptor)
