@@ -66,7 +66,7 @@ int find_builtin(info_t *infos)
 		if (_strcmp(infos->argv[0], builtintbl[i].type) == 0)
 		{
 			infos->line_count++;
-			built_in_rett = builtintbl[i].func(info);
+			built_in_rett = builtintbl[i].func(infos);
 			break;
 		}
 	return (built_in_rett);
@@ -82,13 +82,13 @@ void find_cmd(info_t *infos)
 	char *path = NULL;
 	int n, h;
 
-	info->path = infos->argv[0];
+	infos->path = infos->argv[0];
 	if (infos->linecount_flag == 1)
 	{
 		infos->line_count++;
 		infos->linecount_flag = 0;
 	}
-	for (n = 0, h = 0; infos->arg[n]; i++)
+	for (n = 0, h = 0; infos->arg[n]; n++)
 		if (!is_delim(infos->arg[n], " \t\n"))
 			h++;
 	if (!h)
@@ -97,7 +97,7 @@ void find_cmd(info_t *infos)
 	path = find_path(infos, _getenv(infos, "PATH="), infos->argv[0]);
 	if (path)
 	{
-		info->path = path;
+		infos->path = path;
 		fork_cmd(infos);
 	}
 	else
