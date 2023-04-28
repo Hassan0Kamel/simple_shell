@@ -8,10 +8,10 @@
  */
 int is_cmd(info_t *infos, char *paths)
 {
-	struct stat we;
+	struct stat st;
 
 	(void)infos;
-	if (!paths || stat(paths, &we))
+	if (!paths || stat(paths, &st))
 		return (0);
 
 	if (st.st_mode & S_IFREG)
@@ -56,7 +56,7 @@ char *find_path(info_t *infos, char *pathstring, char *command)
 		return (NULL);
 	if ((_strlen(command) > 2) && starts_with(command, "./"))
 	{
-		if (is_command(infos, command))
+		if (is_cmd(infos, command))
 			return (command);
 	}
 	while (1)
@@ -71,7 +71,7 @@ char *find_path(info_t *infos, char *pathstring, char *command)
 				_strcat(path, "/");
 				_strcat(path, command);
 			}
-			if (is_cmd(info, path))
+			if (is_cmd(infos, path))
 				return (path);
 			if (!pathstring[i])
 				break;
