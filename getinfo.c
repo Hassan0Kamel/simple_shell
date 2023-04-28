@@ -21,7 +21,7 @@ void set_info(info_t *infos, char **avg)
 {
 	int i = 0;
 
-	info->fname = avg[0];
+	infos->fname = avg[0];
 	if (infos->arg)
 	{
 		infos->argv = strtow(infos->arg, " \t");
