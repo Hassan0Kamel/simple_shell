@@ -18,7 +18,7 @@ int main(int acr, char **avr)
 
 	if (acr == 2)
 	{
-		filedirectory = open(av[1], O_RDONLY);
+		filedirectory = open(avr[1], O_RDONLY);
 		if (filedirectory == -1)
 		{
 			if (errno == EACCES)
@@ -38,6 +38,6 @@ int main(int acr, char **avr)
 	}
 	populate_env_list(info);
 	read_history(info);
-	hsh(info, av);
+	hsh(info, avr);
 	return (EXIT_SUCCESS);
 }
