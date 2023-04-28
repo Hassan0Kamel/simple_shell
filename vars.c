@@ -11,9 +11,9 @@ int is_chain(info_t *infos, char *buff, size_t *p)
 {
 	size_t j = *p;
 
-	if (buf[j] == '|' && buf[j + 1] == '|')
+	if (buff[j] == '|' && buff[j + 1] == '|')
 	{
-		buf[j] = 0;
+		buff[j] = 0;
 		j++;
 		infos->cmd_buf_type = CMD_OR;
 	}
@@ -122,7 +122,7 @@ int replace_vars(info_t *infos)
 					_strdup(convert_number(getpid(), 10, 0)));
 			continue;
 		}
-		node = node_starts_with(infos->env, &info->argv[i][1], '=');
+		node = node_starts_with(infos->env, &infos->argv[i][1], '=');
 		if (node)
 		{
 			replace_string(&(infos->argv[i]),
