@@ -91,7 +91,7 @@ list_t *node_starts_with(list_t *noded, char *prefixx, char c)
 		p = starts_with(noded->str, prefixx);
 		if (p && ((c == -1) || (*p == c)))
 			return (noded);
-		node = noded->next;
+		noded = noded->next;
 	}
 	return (NULL);
 }
@@ -109,8 +109,8 @@ ssize_t get_node_index(list_t *header, list_t *noded)
 	while (header)
 	{
 		if (header == noded)
-			return (fi);
-		header = head->next;
+			return (f);
+		header = header->next;
 		f++;
 	}
 	return (-1);
